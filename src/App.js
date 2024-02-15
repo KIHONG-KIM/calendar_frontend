@@ -6,6 +6,7 @@ import CustomTuiModal from "./components/CustomTuiModal";
 
 const start = new Date();
 const end = new Date(new Date().setMinutes(start.getMinutes() + 60));
+
 const attendees = [
   {
     id: "1",
@@ -46,16 +47,6 @@ const schedules = [
     start: new Date(new Date().setHours(start.getHours() + 2)),
     end: new Date(new Date().setHours(start.getHours() + 4))
   },
-  {
-    id: "4",
-    title: "Phai lam sao day",
-    calendarId: "4",
-    category: "time",
-    attendees: ["Linh"],
-    isVisible: true,
-    start: new Date(new Date().setHours(start.getHours() + 2)),
-    end: new Date(new Date().setHours(start.getHours() + 6))
-  }
 ];
 
 const colors = [
@@ -79,34 +70,6 @@ const colors = [
     bgColor: "#00a9ff",
     dragBgColor: "#00a9ff",
     borderColor: "#00a9ff"
-  },
-  {
-    id: "4",
-    color: "#ffffff",
-    bgColor: "#F2B34C",
-    dragBgColor: "#F2B34C",
-    borderColor: "#F2B34C"
-  },
-  {
-    id: "5",
-    color: "#ffffff",
-    bgColor: "#74788D",
-    dragBgColor: "#74788D",
-    borderColor: "#74788D"
-  },
-  {
-    id: "6",
-    color: "#ffffff",
-    bgColor: "#343A40",
-    dragBgColor: "#343A40",
-    borderColor: "#343A40"
-  },
-  {
-    id: "7",
-    color: "#000000",
-    bgColor: "#FFFFFF",
-    dragBgColor: "#FFFFFF",
-    borderColor: "#FFFFFF"
   }
 ];
 
@@ -122,25 +85,10 @@ const calendars = [
   {
     id: "3",
     name: "Aqua 4 Cleaning"
-  },
-  {
-    id: "4",
-    name: "Luxury 6 Cleaning"
-  },
-  {
-    id: "5",
-    name: "Luxury 6 Management"
-  },
-  {
-    id: "6",
-    name: "Aqua 3 Management"
-  },
-  {
-    id: "7",
-    name: "Aqua 2 Management"
   }
 ];
 
+// App
 export default function App() {
   const [modal, setModal] = useState(false);
   const [event, setEvent] = useState(null);

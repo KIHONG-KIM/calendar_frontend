@@ -57,8 +57,8 @@ const CustomTuiCalendar = forwardRef(
 
     useEffect(() => {
       calendarInstRef.current = new TuiCalendar(tuiRef.current, {
-        useDetailPopup: true,
-        useCreationPopup: true,
+        useDetailPopup: false,
+        useCreationPopup: false,
         template: {
           milestone: function (schedule) {
             return (
@@ -69,92 +69,92 @@ const CustomTuiCalendar = forwardRef(
               "</span>"
             );
           },
-          milestoneTitle: function () {
-            return '<span class="tui-full-calendar-left-content">MILESTONE</span>';
-          },
-          task: function (schedule) {
-            return "#" + schedule.title;
-          },
-          taskTitle: function () {
-            return '<span class="tui-full-calendar-left-content">TASK</span>';
-          },
-          allday: function (schedule) {
-            return _getTimeTemplate(schedule, true);
-          },
-          alldayTitle: function () {
-            return '<span class="tui-full-calendar-left-content">ALL DAY</span>';
-          },
-          time: function (schedule) {
-            return _getTimeTemplate(schedule, false);
-          },
-          goingDuration: function (schedule) {
-            return (
-              '<span class="calendar-icon ic-travel-time"></span>' +
-              schedule.goingDuration +
-              "min."
-            );
-          },
-          comingDuration: function (schedule) {
-            return (
-              '<span class="calendar-icon ic-travel-time"></span>' +
-              schedule.comingDuration +
-              "min."
-            );
-          },
-          monthMoreTitleDate: function (date, dayname) {
-            var day = date.split(".")[2];
+          // milestoneTitle: function () {
+          //   return '<span class="tui-full-calendar-left-content">MILESTONE</span>';
+          // },
+          // task: function (schedule) {
+          //   return "#" + schedule.title;
+          // },
+          // taskTitle: function () {
+          //   return '<span class="tui-full-calendar-left-content">TASK</span>';
+          // },
+          // allday: function (schedule) {
+          //   return _getTimeTemplate(schedule, true);
+          // },
+          // alldayTitle: function () {
+          //   return '<span class="tui-full-calendar-left-content">ALL DAY</span>';
+          // },
+          // time: function (schedule) {
+          //   return _getTimeTemplate(schedule, false);
+          // },
+          // goingDuration: function (schedule) {
+          //   return (
+          //     '<span class="calendar-icon ic-travel-time"></span>' +
+          //     schedule.goingDuration +
+          //     "min."
+          //   );
+          // },
+          // comingDuration: function (schedule) {
+          //   return (
+          //     '<span class="calendar-icon ic-travel-time"></span>' +
+          //     schedule.comingDuration +
+          //     "min."
+          //   );
+          // },
+          // monthMoreTitleDate: function (date, dayname) {
+          //   var day = date.split(".")[2];
 
-            return (
-              '<span class="tui-full-calendar-month-more-title-day">' +
-              day +
-              '</span> <span class="tui-full-calendar-month-more-title-day-label">' +
-              dayname +
-              "</span>"
-            );
-          },
-          monthMoreClose: function () {
-            return '<span class="tui-full-calendar-icon tui-full-calendar-ic-close"></span>';
-          },
-          monthGridHeader: function (dayModel) {
-            var date = parseInt(dayModel.date.split("-")[2], 10);
-            var classNames = ["tui-full-calendar-weekday-grid-date "];
+          //   return (
+          //     '<span class="tui-full-calendar-month-more-title-day">' +
+          //     day +
+          //     '</span> <span class="tui-full-calendar-month-more-title-day-label">' +
+          //     dayname +
+          //     "</span>"
+          //   );
+          // },
+          // monthMoreClose: function () {
+          //   return '<span class="tui-full-calendar-icon tui-full-calendar-ic-close"></span>';
+          // },
+          // monthGridHeader: function (dayModel) {
+          //   var date = parseInt(dayModel.date.split("-")[2], 10);
+          //   var classNames = ["tui-full-calendar-weekday-grid-date "];
 
-            if (dayModel.isToday) {
-              classNames.push("tui-full-calendar-weekday-grid-date-decorator");
-            }
+          //   if (dayModel.isToday) {
+          //     classNames.push("tui-full-calendar-weekday-grid-date-decorator");
+          //   }
 
-            return (
-              '<span class="' + classNames.join(" ") + '">' + date + "</span>"
-            );
-          },
-          monthGridHeaderExceed: function (hiddenSchedules) {
-            return (
-              '<span class="weekday-grid-more-schedules">+' +
-              hiddenSchedules +
-              "</span>"
-            );
-          },
-          monthGridFooter: function () {
-            return "";
-          },
-          monthGridFooterExceed: function (hiddenSchedules) {
-            return "";
-          },
-          monthDayname: function (model) {
-            return model.label.toString().toLocaleUpperCase();
-          },
-          weekDayname: function (model) {
-            return (
-              '<span class="tui-full-calendar-dayname-date">' +
-              model.date +
-              '</span>&nbsp;&nbsp;<span class="tui-full-calendar-dayname-name">' +
-              model.dayName +
-              "</span>"
-            );
-          },
-          weekGridFooterExceed: function (hiddenSchedules) {
-            return "+" + hiddenSchedules;
-          },
+          //   return (
+          //     '<span class="' + classNames.join(" ") + '">' + date + "</span>"
+          //   );
+          // },
+          // monthGridHeaderExceed: function (hiddenSchedules) {
+          //   return (
+          //     '<span class="weekday-grid-more-schedules">+' +
+          //     hiddenSchedules +
+          //     "</span>"
+          //   );
+          // },
+          // monthGridFooter: function () {
+          //   return "";
+          // },
+          // monthGridFooterExceed: function (hiddenSchedules) {
+          //   return "";
+          // },
+          // monthDayname: function (model) {
+          //   return model.label.toString().toLocaleUpperCase();
+          // },
+          // weekDayname: function (model) {
+          //   return (
+          //     '<span class="tui-full-calendar-dayname-date">' +
+          //     model.date +
+          //     '</span>&nbsp;&nbsp;<span class="tui-full-calendar-dayname-name">' +
+          //     model.dayName +
+          //     "</span>"
+          //   );
+          // },
+          // weekGridFooterExceed: function (hiddenSchedules) {
+          //   return "+" + hiddenSchedules;
+          // },
           dayGridTitle: function (viewName) {
             // use another functions instead of 'dayGridTitle'
             // milestoneTitle: function() {...}
@@ -451,35 +451,35 @@ const CustomTuiCalendar = forwardRef(
       setRenderRange(html.join(""));
     }
 
-    function _getTimeTemplate(schedule, isAllDay) {
-      var html = [];
+    // function _getTimeTemplate(schedule, isAllDay) {
+    //   var html = [];
 
-      if (!isAllDay) {
-        html.push(
-          "<strong>" +
-            moment(schedule.start.toDate()).format("HH:mm") +
-            "</strong> "
-        );
-      }
-      if (schedule.isPrivate) {
-        html.push('<span class="calendar-font-icon ic-lock-b"></span>');
-        html.push(" Private");
-      } else {
-        if (schedule.isReadOnly) {
-          html.push('<span class="calendar-font-icon ic-readonly-b"></span>');
-        } else if (schedule.recurrenceRule) {
-          html.push('<span class="calendar-font-icon ic-repeat-b"></span>');
-        } else if (schedule.attendees.length) {
-          html.push('<span class="calendar-font-icon ic-user-b"></span>');
-        } else if (schedule.location) {
-          html.push('<span class="calendar-font-icon ic-location-b"></span>');
-        }
+    //   if (!isAllDay) {
+    //     html.push(
+    //       "<strong>" +
+    //         moment(schedule.start.toDate()).format("HH:mm") +
+    //         "</strong> "
+    //     );
+    //   }
+    //   if (schedule.isPrivate) {
+    //     html.push('<span class="calendar-font-icon ic-lock-b"></span>');
+    //     html.push(" Private");
+    //   } else {
+    //     if (schedule.isReadOnly) {
+    //       html.push('<span class="calendar-font-icon ic-readonly-b"></span>');
+    //     } else if (schedule.recurrenceRule) {
+    //       html.push('<span class="calendar-font-icon ic-repeat-b"></span>');
+    //     } else if (schedule.attendees.length) {
+    //       html.push('<span class="calendar-font-icon ic-user-b"></span>');
+    //     } else if (schedule.location) {
+    //       html.push('<span class="calendar-font-icon ic-location-b"></span>');
+    //     }
 
-        html.push(" " + schedule.title);
-      }
+    //     html.push(" " + schedule.title);
+    //   }
 
-      return html.join("");
-    }
+    //   return html.join("");
+    // }
 
     useEffect(() => {
       document.addEventListener("click", handleClick, false);
